@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmf366cn5vx85"]
+
+[ext_resource type="Script" uid="uid://bothtt5fv4we5" path="res://Scripts/DetectionObject/DetectionPolygon2D.cs" id="1_efiuv"]
+[ext_resource type="Script" uid="uid://dbhktkrrx5x1p" path="res://Scripts/Ball2D.cs" id="3_3cg6n"]
+
+[node name="Main" type="Node2D"]
+
+[node name="PhysicsObject" type="Node2D" parent="." node_paths=PackedStringArray("Shape")]
+script = ExtResource("1_efiuv")
+Shape = NodePath("Polygon2D3")
+
+[node name="Polygon2D3" type="Polygon2D" parent="PhysicsObject"]
+z_index = -1
+position = Vector2(-325, 547)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-429, -764, 872, -1287, 139, 640)
+
+[node name="PhysicsObject2" type="Node2D" parent="." node_paths=PackedStringArray("Shape")]
+z_index = -2
+script = ExtResource("1_efiuv")
+Shape = NodePath("Polygon2D")
+
+[node name="Polygon2D" type="Polygon2D" parent="PhysicsObject2"]
+z_index = -3
+position = Vector2(-254, 795)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(285, -200, 821.515, -200, 1173.92, -200, 1605, -200, 956, 360)
+
+[node name="PhysicsObject3" type="Node2D" parent="." node_paths=PackedStringArray("Shape")]
+z_index = -2
+script = ExtResource("1_efiuv")
+Shape = NodePath("Polygon2D")
+
+[node name="Polygon2D" type="Polygon2D" parent="PhysicsObject3"]
+z_index = -3
+position = Vector2(1977, 1119)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-237, -617, 422, -737, 991, -369, 276, 341, -579, 470, -729, -145)
+
+[node name="PhysicsObject4" type="Node2D" parent="." node_paths=PackedStringArray("Shape")]
+z_index = -2
+script = ExtResource("1_efiuv")
+Shape = NodePath("Polygon2D")
+
+[node name="Polygon2D" type="Polygon2D" parent="PhysicsObject4"]
+z_index = -3
+position = Vector2(1187, 1239)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-1016, -1195, -816, -2191, 121, -2414, 1195, -991)
+
+[node name="PhysicsObject5" type="Node2D" parent="." node_paths=PackedStringArray("Shape")]
+z_index = -2
+script = ExtResource("1_efiuv")
+Shape = NodePath("Polygon2D")
+
+[node name="Polygon2D" type="Polygon2D" parent="PhysicsObject5"]
+z_index = -3
+position = Vector2(-198, 2736)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-1016, -1195, 121, -2414, 1708, -1305, 429, -246)
+
+[node name="PhysicsItem" type="Node2D" parent="."]
+z_index = -2
+position = Vector2(2336, -176)
+
+[node name="Polygon2D" type="Polygon2D" parent="PhysicsItem"]
+z_index = -3
+position = Vector2(1, 2)
+polygon = PackedVector2Array(-145, -42, 154, -90, 25, 215)
+
+[node name="Ball" type="Node2D" parent="." node_paths=PackedStringArray("colliders")]
+position = Vector2(359, 253)
+script = ExtResource("3_3cg6n")
+colliders = [NodePath("../PhysicsObject2"), NodePath("../PhysicsObject"), NodePath("../PhysicsObject3"), NodePath("../PhysicsObject4"), NodePath("../PhysicsObject5")]
+Damping = 0.8
+
+[node name="Camera2D" type="Camera2D" parent="Ball"]
